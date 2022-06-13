@@ -1,9 +1,9 @@
 const w = document.querySelector('#canvas');
 let height = w.getAttribute('height');
 let width  = w.getAttribute('width'); 
-var color = "blue";
-var img = new Image();
-img.src = '724163.png'; 
+var color1 = "blue";
+var color2 = "red";
+var color3 = "yellow";
 
 var x1 = 300;
 var y1 = 150;
@@ -11,6 +11,7 @@ let x2 = 200;
 let y2 = 300;
 let x3 = 400;
 let y3 = 200;
+
 
 let radius1 = 50;
 let radius2 = 50;
@@ -39,30 +40,27 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
 
-context.drawImage(img, 0, 0, width, height); 
-
 
 context.beginPath();
 context.clearRect(0,0,10000, 6000);
 context.arc(x1, y1, radius1, 0, 360, false);
-context.fillStyle = color;
+context.fillStyle = color1;
 context.fill();
 context.stroke();
 
-context.drawImage(img, 0, 0, width, height); 
 
 
 context.beginPath();
 context.clearRect(0,0,00, 00);
 context.arc(x2, y2, radius2, 0, 360, false);
-context.fillStyle = color;
+context.fillStyle = color2;
 context.fill();
 context.stroke();
 
 context.beginPath();
 context.clearRect(0,0,00, 00);
 context.arc(x3, y3, radius2, 0, 360, false);
-context.fillStyle = 'yellow';
+context.fillStyle = color3;
 context.fill();
 context.stroke();
 
@@ -124,18 +122,49 @@ function getDistance(){
     (yDistance, 2));
 }
 
+function getDistance1(){
+     let xDistance1 = x3 - x2;
+     let yDistance1 = y3 - y2;
+    
+     return Math.sqrt(Math.pow(xDistance1, 2) + Math.pow
+     (yDistance1, 2));
+ }
+
+ function getDistance11(){
+     let xDistance11 = x3 - x1;
+     let yDistance11 = y3 - y1;
+    
+     return Math.sqrt(Math.pow(xDistance11, 2) + Math.pow
+     (yDistance11, 2));
+ }
 
 if (getDistance() < radius1 + radius2){
-     color ="red";
+     color1 ="green";
 } else{
-     color ="blue";
+     color1 = "blue";
 }
+
+
+if (getDistance1() < radius3 + radius2){
+     color2 ="black";
+}else{
+     color2 ="red";
 }
+
+if (getDistance11() < radius3 + radius1){
+     color3 ="white";
+} else{
+     color3 = "yellow";
+}
+
+
+}
+
 
 
 
 //document.addEventListener("mouseover", windowload);
-setInterval(windowload, 15)
+setInterval(windowload, 3)
 
 
 
